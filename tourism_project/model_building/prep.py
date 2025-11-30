@@ -16,6 +16,17 @@ DATASET_PATH = "hf://datasets/ggoel1991/tourism_project/tourism.csv"
 df = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
+#Correcting the Data Anamolies
+# Fix Gender column
+df['Gender'] = df['Gender'].replace({
+    'Fe Male': 'Female'
+})
+
+# Fix MaritalStatus column
+df['MaritalStatus'] = df['MaritalStatus'].replace({
+    'Unmarried': 'Single'
+})
+
 
 #Converting Age, Duration and Incoe to Categorical Values
 df['Age_cat'] = pd.cut(df['Age'],

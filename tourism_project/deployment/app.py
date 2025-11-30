@@ -27,7 +27,7 @@ number_of_person_visiting = st.number_input("Number of Persons Visiting", min_va
 number_of_followups = st.number_input("Number of Followups", min_value=0, max_value=10, value=2)
 product_pitched = st.selectbox("Product Pitched", ["Basic", "Standard", "Deluxe", "Super Deluxe", "King"])
 preferred_property_star = st.selectbox("Preferred Property Star", [3, 4, 5])
-marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced","Unmarried"])
+marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced"])
 number_of_trips = st.number_input("Number of Trips", min_value=0, max_value=20, value=1)
 passport = st.selectbox("Passport", ["0", "1"])
 pitch_satisfaction_score = st.slider("Pitch Satisfaction Score", min_value=1, max_value=5, value=3)

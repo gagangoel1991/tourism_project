@@ -40,7 +40,9 @@ numeric_features = [
 categorical_features = [
     'Passport','PitchSatisfactionScore','Age_cat', 'Duration_cat', 'Income_cat', 'TypeofContact','CityTier','Occupation','Gender','ProductPitched','MaritalStatus','Designation','PreferredPropertyStar','OwnCar'
 ]
+
 class_weight = ytrain.value_counts()[0] / ytrain.value_counts()[1]
+
 # Preprocessor
 preprocessor = make_column_transformer(
     (StandardScaler(), numeric_features),
