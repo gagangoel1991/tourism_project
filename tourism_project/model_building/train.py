@@ -40,7 +40,7 @@ numeric_features = [
 categorical_features = [
     'Passport','PitchSatisfactionScore','Age_cat', 'Duration_cat', 'Income_cat', 'TypeofContact','CityTier','Occupation','Gender','ProductPitched','MaritalStatus','Designation','PreferredPropertyStar','OwnCar'
 ]
-
+class_weight = ytrain.value_counts()[0] / ytrain.value_counts()[1]
 # Preprocessor
 preprocessor = make_column_transformer(
     (StandardScaler(), numeric_features),
@@ -48,7 +48,7 @@ preprocessor = make_column_transformer(
 )
 
 # Define base XGBoost Classifier
-xgb_model = xgb.XGBClassifier(random_state=42, n_jobs=-1, use_label_encoder=False, eval_metric='logloss')
+xgb_model = xgb.XGBClassifier(scale_pos_weight=class_weight,random_state=42, n_jobs=-1, use_label_encoder=False, eval_metric='logloss')
 
 # Hyperparameter grid
 param_grid = {
