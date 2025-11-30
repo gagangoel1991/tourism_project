@@ -59,9 +59,12 @@ input_data = pd.DataFrame([{
     'NumberOfTrips': number_of_trips
 }])
 
-
-# Predict button
 if st.button("Predict"):
     prediction = model.predict(input_data)[0]
+
     st.subheader("Prediction Result:")
-    st.success(f"Travel Taken: **{prediction:,.2f}")
+
+    if prediction == 0:
+        st.error("Prediction says: **No Travel Package Taken**")
+    else:
+        st.success("Prediction says: **Travel Package Taken**")
