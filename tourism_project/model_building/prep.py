@@ -30,7 +30,7 @@ df['Duration_cat'] = pd.cut(df['DurationOfPitch'],
 # Convert MonthlyIncome into categories
 df['Income_cat'] = pd.cut(df['MonthlyIncome'],
                           bins=[0, 10000, 20000, 40000, 70000, df['MonthlyIncome'].max()],
-                          labels=['Low', 'Lower-Middle', 'Middle', 'Upper-Middle', 'High'])
+                          labels=['Low Less than 10K', 'Lower-Middle Greator than 10K  and Less than 20K', 'Middle Greator than 20K  and Less than 40K', 'Upper-Middle Greator than 40K  and Less than 70K', 'High Greator than 70K'])
 
 
 # Drop unique identifier column (not useful for modeling)
